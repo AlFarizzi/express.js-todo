@@ -1,0 +1,25 @@
+<%- include('templates/header.ejs') %>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card px-3">
+                        <div class="card-body">
+                            <h4 class="card-title">Awesome Todo list</h4>
+                            <div class="add-items d-flex"> <input type="text" id="todo" class="form-control todo-list-input" placeholder="What do you need to do today?"> <button id="add" class="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button> </div>
+                            <div class="list-wrapper">
+                                <ul id="lists" class="d-flex flex-column-reverse todo-list">
+                                    <% data['data'].forEach(data => {%>
+                                        <li class="par" id="par" data-act="<%= data.id %>">
+                                            <div class="form-check"> <label class="form-check-label"> <%= data.aktivitas %> <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                        </li>
+                                    <% }) %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('templates/footer.ejs') %>
