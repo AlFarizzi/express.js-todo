@@ -1,10 +1,11 @@
 var mysql = require("mysql");
 var express = require("express");
+require("dotenv").config();
 var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
     password: "",
-    database: "todo"
+    database: process.env.DB_NAME
 })
 var app = new express();
 app.set('view engine', 'ejs');
@@ -42,7 +43,7 @@ con.connect(err => {
         })
     })
 
-    app.listen(3000);
+    app.listen(process.env.PORT);
 })
 
 
